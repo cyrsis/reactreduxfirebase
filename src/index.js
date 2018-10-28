@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers';
+import RootReducer from './reducers/RootReducer';
 import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Login from './components/Login';
 import Header from './routes/Header';
@@ -19,7 +19,7 @@ import './styles/index.css';
 
 // create redux store -> reducers -> 'actions - actionType' | applyMiddleware()
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(RootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 // provide the store to react
 

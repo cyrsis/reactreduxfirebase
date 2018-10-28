@@ -5,6 +5,7 @@ import { getNotes, saveNote, deleteNote } from '../actions/notesAction';
 import NoteCard from './NoteCard';
 import { getUser } from '../actions/userAction';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from "redux";
 
 class App extends Component {
     constructor(props) {
@@ -75,7 +76,7 @@ class App extends Component {
                             src={this.props.user.photoURL}
                             height="100px"
                             className="img img-responsive cirlce"
-                            style={{ padding: '20px' }}
+                            style={{padding: '20px'}}
                         />
                         <h4 className="username">Welcome back {this.props.user.displayName}</h4>
                     </div>
@@ -109,9 +110,9 @@ class App extends Component {
                                 <button className="btn btn-primary col-sm-12">Save</button>
                             </div>
                         </form>
-                        <br />
-                        <br />
-                        <br />
+                        <br/>
+                        <br/>
+                        <br/>
                         {this.renderNotes()}
                     </div>
                 </div>
@@ -127,4 +128,13 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-export default connect(mapStateToProps, { getNotes, saveNote, deleteNote, getUser })(App);
+function mapDispatchToProps(dispatch) { //Just like the store.subscribe method
+    return bindActionCreators({
+        getNotes: getNotes,
+        saveNote: saveNote,
+        deleteNote: deleteNote,
+        getUser: getUser,
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
