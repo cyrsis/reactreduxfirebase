@@ -1,5 +1,6 @@
-//calculate the number of elements in an array）
-//Compare two object at the run time
+//Goal:
+//Calculate the number of elements in an array
+//
 //Linear Time Complexity
 //0(n)
 //這是一個類似單字剪報功能的演算法，告訴它我們希望得到哪些單字（noteText），然後在一篇文章（magazineText）中去尋找看看能不能找到這些單字，而且數量要足夠。
